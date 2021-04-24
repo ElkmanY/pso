@@ -1,43 +1,52 @@
-function [FB, PB] = pso ( obj, N, D, G, S, C, W, LMT )
-%
-%
-%% precedures
-fgb_history = zeros(G,S);
-gb_history = zeros(S,D);
-
-for s = 1:S
+function [f_best, x_best] = pso ( J, d, xlmt, n, T )
+% standard particle swarm optimization algorithm
+% 2021-04-24
+% Author; elkmany
+%% 参数-parameters
+xb = xlmt(:,1);
+xp = xlmt(:,2);
+vb = - 0.5*0.5*(xlmt(:,2) - xlmt(:,1));
+vp = 0.5*0.5*(xlmt(:,2) - xlmt(:,1));
+c1 = 2;
+c2 = 2;
+w = 0.5;
+fg = zeros(1,T+1);
+g = zeros(d,T+1);
+%% 初始化-initialization
+X = rand(d,n).*(xp-xb) + xb;
+V = rand(d,n).*(vp-vb) + vb;
+P = X;
+F = J(X);
+Fp = F;
+F = J(X);
+[fg(1),ig] = min(F);
+g(:,1) = X(:,ig);
+for t = 1:T
+    V_ = w*V + c1*(P-X).*rand(d,n) + c2*(g(:,t)-X).*rand(d,n);
+    X_ = X + V_;
     
-    P = ones(N,1)*LMT(1,:) + ones(N,1)*(LMT(2,:)-LMT(1,:)).*rand(N,D);
-    V = zeros(N,D);
-    F = obj(P);
-    pbest = P;
-    f_pbest = F;
-    [f_gbest,i_gbest] = min(f_pbest);
-    gbest = P(i_gbest,:);
-    for g = 1:G
-        
-        O = (W(1) -W(2))*(G-g)/G + W(2);
-        V_ = O*V + C(1)*rand(N,D).*(pbest - P) + C(2)*rand(N,D).*(gbest - P);
-        P_ = P + V_;
-        P_ = min(P_,LMT(2,:));
-        P_ = max(P_,LMT(1,:)); 
-        F_ = obj(P_);
-
-        flag = F<F_;
-        f_pbest = F.*flag + F_.*(~flag);
-        pbest = pbest.*flag + P_.*(~flag);
-        [f_gbest,i_gbest] = min(f_pbest);
-        gbest = pbest(i_gbest,:);
-        P = P_;
-        F = F_;  
-        fgb_history(g,s) = f_gbest;
-    end
-    gb_history(s,:) = gbest;
+    F_ = J(X_);
+    flag = F_ < Fp;
+    P_ = X_.*flag + P.*(~flag);
+    Fp_ = F_.*flag + Fp.*(~flag);
     
+    Fpa = [Fp_,fg(t)];
+    Pa = [P_,g(:,t)];
+    [fg(t+1),ig] = min(Fpa);
+    g(:,t+1) = Pa(:,ig);
+    
+    V = V_;
+    X = X_;
+    P = P_;
+    Fp = Fp_;
 end
-%%  configuration of DATA
-AVF = mean(fgb_history,2);
-plot(AVF);
-[FB, IB] = min(fgb_history(G,:));
-PB = gb_history(IB,:);
+x_best = g(:,end);
+f_best = fg(end);
+%% 绘图-plot data
+figure
+box on
+semilogy(0:T,fg,'b','LineWidth',1.5);
+xlabel('迭代次数','FontName','Hei');
+ylabel('目标函数值','FontName','Hei');
+title('目标函数值收敛曲线','FontName','Hei');
 end
