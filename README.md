@@ -13,12 +13,20 @@ where
  - ```f_best``` is the fitness of the optimal solution
  - ```g_best``` is the optimal solution
 
-To run a test function by
+
+For instance, a benchmark is chosen for a test: 
+
+![benchmark](https://latex.codecogs.com/gif.latex? J(\boldsymbol{x}) = \sum_{i=1}^{d} \{x_i^2 - 10\cos(2 \pi x_i) +10 \}, -5.12 \leqslant x_i \leqslant 5.12.)
+
+To run the test function by executing
 ```matlab 
 test.m
 ```
+
 Then, the optimal solution, its fitness and an execution time are printed.
 Also, a plot of the convergence curve of fitness is shown. 
 
+
 Reference:
-*[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
+[1] *[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
+[2] Author's post (Chinese simplified): *[粒子群优化及其Matlab实现](https://elkmany.github.io/techo/2021/04/24/standard-pso.html)*
