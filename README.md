@@ -16,9 +16,8 @@ where
 
 For instance, a benchmark is chosen for a test: 
 
-![benchmark](https://latex.codecogs.com/gif.latex?\ J(\boldsymbol{x}) = \sum_{i=1}^{d} \{x_i^2 - 10\cos(2 \pi x_i) +10 \}, -5.12 \leqslant x_i \leqslant 5.12.)
+![benchmark](/benchmark.gif)
 
-$ J(\boldsymbol{x}) = \sum_{i=1}^{d} \{x_i^2 - 10\cos(2 \pi x_i) +10 \}, -5.12 \leqslant x_i \leqslant 5.12. $
 
 To run the test function by executing
 ```matlab 
