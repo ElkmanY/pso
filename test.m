@@ -1,8 +1,10 @@
-%%  objective
+%% benchmark
 J = @(X) sum( X.^2 - 10*cos(2*pi*X) + 10 );
-D = 30;
-LMT = ones(D,2).*[-5.12,5.12];
-%%  pso procedure and results
+%%  objective of 30-d
 tic;
-[fbst, xbst] = pso ( J, D, LMT, 100, 1000 )
-timecost = toc
+[fbst_30d, xbst_30d] = pso( J, 30, ones(30,2).*[-5.12,5.12], 100, 1000 );
+timecost_30d = toc;
+%%  objective of 2-d
+tic;
+[fbst_2d, xbst_2d] = pso( J, 2, ones(2,2).*[-5.12,5.12], 30, 200 );
+timecost_2d = toc;
