@@ -51,6 +51,8 @@ The test including two runs:
 
 ## Reference:
 
-[1] *[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
+[1] Article: *[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
 
 [2] Author's post (Chinese simplified): *[粒子群优化及其Matlab实现](https://elkmany.github.io/techo/2021/04/24/standard-pso.html)*
+
+[3] Repo: *[BenchmarkFcns](https://github.com/mazhar-ansari-ardeh/BenchmarkFcns)*
