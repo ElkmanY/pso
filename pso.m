@@ -73,12 +73,12 @@ if d == 2
     ylabel('\it{x}_2','FontName','Time New Roman');
     title('Trajectory of Global Optimal','FontName','Aril');
     
-    % Movments of Particles
-    figure('Name','Movments of Particles');
+    % Movements of Particles
+    figure('Name','Movements of Particles');
     ax = gca;
     xlabel('\it{x}_1','FontName','Time New Roman');
     ylabel('\it{x}_2','FontName','Time New Roman');
-    title('Particles Behavior','FontName','Aril');
+    title('Movements of Particles','FontName','Aril');
     box on;
     grid on;
     hold on;

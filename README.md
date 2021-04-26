@@ -1,6 +1,8 @@
 # Particle Swarm Optimization (PSO)
 This repository contains the standard Particle Swarm Optimization code (matlab M-file) for optimizing the benchmark function:
 
+## Usage
+
 ```matlab
 [f_best, x_best] = pso ( J, d, xlmt, n, T )
 ```
@@ -13,24 +15,41 @@ where
  - ```f_best``` is the fitness of the optimal solution
  - ```g_best``` is the optimal solution
 
+## Test
 
-For instance, a benchmark is chosen for a test: 
+For instance, a benchmark *[Rastrigin](http://benchmarkfcns.xyz/benchmarkfcns/rastriginfcn.html)* is chosen for a test: 
 
-![benchmark](/benchmark.gif)
-including two runs:
- - 30-d benchmark
- - 2-d benchmark
+![benchmark](/img/benchmark.gif)
 
-To run the test function by executing
+Here, this benchmark is coded as a function handle
+```matlab
+J = @(X) sum( X.^2 - 10*cos(2*pi*X) + 10 );
+```
+where ```X``` is a ```d```-by-```n``` matrix.
+
+To run the test by executing
 ```matlab 
 test.m
 ```
+The test including two runs:
+ - 30-```d``` benchmark
+    
+    The results includes an optimal solution, its fitness and an execution time. 
+    Also, a plot of the convergence curve of fitness is shown. 
 
-The results includes an optimal solution, its fitness and an execution time.
-Also, a plot of the convergence curve of fitness is shown. 
+    ![benchmark](/img/convergence-30d.png#pic_center)
+
+ - 2-```d``` benchmark
+    
+    The results includes an optimal solution, its fitness and an execution time. 
+    Also, a plot of the convergence curve of fitness, a plot of the trajectory of global optimal are shown. 
+
+    ![benchmark](/img/convergence-2d.png#pic_center)
+
+    ![benchmark](/img/trajectory.png#pic_center)
 
 
-Reference:
+## Reference:
 
 [1] *[Particle swarm optimization (PSO). A tutorial](https://www.sciencedirect.com/science/article/pii/S0169743915002117)*
 
