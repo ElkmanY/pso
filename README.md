@@ -17,14 +17,16 @@ where
 For instance, a benchmark is chosen for a test: 
 
 ![benchmark](/benchmark.gif)
-
+including two runs:
+ - 30-d benchmark
+ - 2-d benchmark
 
 To run the test function by executing
 ```matlab 
 test.m
 ```
 
-Then, the optimal solution, its fitness and an execution time are printed.
+The results includes an optimal solution, its fitness and an execution time.
 Also, a plot of the convergence curve of fitness is shown. 
 
 
