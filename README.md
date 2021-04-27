@@ -1,6 +1,21 @@
 # Particle Swarm Optimization (PSO)
 This repository contains the standard Particle Swarm Optimization code (matlab M-file) for optimizing the benchmark function:
 
+```
+.
+├── img
+|   ├── benchmark.gif
+|   ├── convergence-2d.png
+|   ├── convergence-30d.png
+|   ├── logo.jpg
+|   └── trajectory.png
+├── _config.yml
+├── LICENSE
+├── pso.m —— [function of particle swarm optimization]
+├── README.md
+└── test.m —— [a test for 'pso.m']
+```
+
 ## Usage
 
 ```matlab
