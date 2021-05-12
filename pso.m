@@ -28,6 +28,8 @@ for t = 1:T
     % update velocity and position
     V_ = w*V + c1*(P-X).*rand(d,n) + c2*(g(:,t)-X).*rand(d,n);
     X_ = X + V_;
+    X_ = max(xlmt(:,1),X_);
+    X_ = min(xlmt(:,2),X_);
     
     % update personal optimal
     F_ = J(X_);
