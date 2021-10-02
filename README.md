@@ -2,6 +2,8 @@
 
 [![View pso - Particle Swarm Optimization on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/92135-pso-particle-swarm-optimization)
 
+DOI: 10.13140/RG.2.2.16986.88000
+
 This repository contains the standard Particle Swarm Optimization code (matlab M-file) for optimizing the benchmark function:
 
 ```
